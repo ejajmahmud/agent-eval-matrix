@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-eval-matrix"
+version = "0.1.0"
+description = "Deterministic multi-turn benchmark and regression evaluation framework for AI agents"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Ejaj Mahmud", email = "dev@ejajmahmud.com"}
+]
+keywords = ["ai-evals", "agent-benchmarking", "llm-testing", "tool-calling", "regression-testing"]
+dependencies = []
+
+[project.scripts]
+aem = "agent_eval_matrix.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agent_eval_matrix*"]
