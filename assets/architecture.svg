@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="shadow5" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="280" rx="16" fill="url(#bgGrad5)" />
+
+  <!-- Trajectory Trace Input -->
+  <g filter="url(#shadow5)">
+    <rect x="40" y="80" width="180" height="120" rx="10" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <text x="130" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="middle">Agent Trajectory</text>
+    <text x="130" y="145" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle">turn 1: TOOL_CALL</text>
+    <text x="130" y="170" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle">turn 2: RESPONSE</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <path d="M 220 140 L 290 140" stroke="#38bdf8" stroke-width="3"/>
+  <polygon points="290,135 302,140 290,145" fill="#38bdf8"/>
+
+  <!-- Evaluation Matrix Box -->
+  <g filter="url(#shadow5)">
+    <rect x="310" y="55" width="280" height="170" rx="14" fill="#111827" stroke="#38bdf8" stroke-width="3"/>
+    <rect x="330" y="70" width="240" height="28" rx="6" fill="#0369a1"/>
+    <text x="450" y="89" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">AGENT EVAL MATRIX</text>
+    <text x="450" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#f8fafc" text-anchor="middle">✓ Mandatory Tool Sequencing</text>
+    <text x="450" y="150" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#f8fafc" text-anchor="middle">✗ Forbidden Tool Execution Check</text>
+    <text x="450" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#f8fafc" text-anchor="middle">⚡ Turn &amp; Token Budget Limits</text>
+    <rect x="330" y="190" width="240" height="22" rx="4" fill="#065f46"/>
+    <text x="450" y="205" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#34d399" text-anchor="middle">DETERMINISTIC LOCAL EVAL</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <path d="M 590 140 L 660 140" stroke="#10b981" stroke-width="3"/>
+  <polygon points="660,135 672,140 660,145" fill="#10b981"/>
+
+  <!-- Output / Scorecard -->
+  <g filter="url(#shadow5)">
+    <rect x="680" y="80" width="180" height="120" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="770" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#34d399" text-anchor="middle">CI/CD Scorecard</text>
+    <text x="770" y="145" font-family="monospace" font-size="11" fill="#f8fafc" text-anchor="middle">Score: 100 / 100</text>
+    <text x="770" y="170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#10b981" text-anchor="middle">[PASSED] GATE</text>
+  </g>
+</svg>

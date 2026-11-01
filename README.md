@@ -1,8 +1,16 @@
 # Agent Eval Matrix 📊
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/)
-[![Testing: Deterministic](https://img.shields.io/badge/Evaluation-Deterministic-brightgreen.svg)]()
+<p align="center">
+  <img src="assets/architecture.svg" alt="Agent Eval Matrix Deterministic Framework" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://github.com/ejajmahmud/agent-eval-matrix/releases"><img src="https://img.shields.io/github/v/release/ejajmahmud/agent-eval-matrix?color=blue&label=version" alt="GitHub release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3.9+-3776AB.svg?style=flat&logo=python&logoColor=white" alt="Python 3.9+"></a>
+  <a href="https://github.com/ejajmahmud/agent-eval-matrix/actions"><img src="https://img.shields.io/badge/evaluation-deterministic-brightgreen.svg" alt="Evaluation: Deterministic"></a>
+  <a href="https://github.com/ejajmahmud/agent-eval-matrix/actions"><img src="https://img.shields.io/badge/tests-passing-brightgreen.svg" alt="Tests"></a>
+</p>
 
 **Agent Eval Matrix (`aem`)** is a local, deterministic evaluation harness and regression testing framework for autonomous AI agents and tool-calling models.
 
@@ -10,7 +18,23 @@ It allows you to specify multi-turn scenario suites (with mandatory tools, seque
 
 ---
 
-## ⚡ Why Agent Eval Matrix?
+## ⚡ Architecture Flow
+
+```mermaid
+flowchart TD
+    Scenario["Benchmark Spec (scenario.json)<br/>- Required tools & sequences<br/>- Forbidden commands<br/>- Turn & token budgets"] --> Evaluator
+    Trajectory["Recorded Agent Trajectory<br/>(sample_trajectory.json)"] --> Evaluator(("⚡ Agent Eval Matrix Engine"))
+    
+    Evaluator --> DecisionCheck{"Constraint Enforcement"}
+    DecisionCheck -->|Violations Found| Failed["❌ Regression Alert<br/>- Missing required sequence<br/>- Forbidden tool called"]
+    DecisionCheck -->|All Rules Satisfied| Passed["✓ CI/CD Gate Passed<br/>Deterministic 100/100 Score"]
+    
+    Evaluator --> Scorecard["Scorecard Generation<br/>- Turn efficiency<br/>- Token consumption<br/>- Action compliance"]
+```
+
+---
+
+## 🧐 Why Agent Eval Matrix?
 
 When updating prompts, system instructions, or tool signatures, agents frequently break in subtle ways:
 - **Skipping Verification**: The agent writes code without running the required linter or unit tests first.
@@ -31,7 +55,7 @@ pip install -e .
 
 ---
 
-## 🚀 Quick Usage
+## 🚀 Quickstart
 
 ### 1. Initialize a Starter Benchmark Suite
 
@@ -76,7 +100,7 @@ Total Tokens : 410
 
 ---
 
-## 🧪 Testing
+## 🧪 Running Tests
 
 ```bash
 python -m unittest discover -s tests

@@ -1,0 +1,2 @@
+[console_scripts]
+aem = agent_eval_matrix.cli:main
